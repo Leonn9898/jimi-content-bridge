@@ -57,7 +57,7 @@ $('send').onclick=async()=>{
   const response=await externalMessage(id,{kind:'JIMI_SUBMIT',task});
   if(!response?.ok)throw Error(response?.error||'发送失败');
   $('result').textContent='插件已接收任务。请点击 Chrome 工具栏中的「季米内容分发｜通信测试」，查看文章并点击“确认模拟完成”。';
-  for(let i=0;i<90;i++){
+  for(let i=0;i<600;i++){
    await delay(2000);
    const r=await externalMessage(id,{kind:'JIMI_POLL',nonce:task.nonce});
    if(!r?.ok)throw Error(r?.error||'轮询失败');
